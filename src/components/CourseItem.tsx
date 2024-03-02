@@ -1,5 +1,5 @@
-import {View, StyleSheet, ImageBackground, Text} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {View, StyleSheet, ImageBackground, Text} from 'react-native';
 
 const coursesList = [
   {
@@ -20,26 +20,31 @@ const course = {
   image: 'https://i.ibb.co/7Kz6Yqg/course1.png',
 };
 
-function CourseSquare() {
+function CourseItem({name, image}) {
   return (
     <View style={styles.container}>
-      <ImageBackground source={{uri: course.image}} style={styles.imageBg}>
+      <ImageBackground source={{uri: image}} style={styles.imageBg}>
         <LinearGradient
-          colors={['transparent', '#FFFFFF']}
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
+          colors={[
+            'rgba(255, 255, 255, 0)',
+            'rgba(255, 255, 255, 0.2)',
+            'rgba(255, 255, 255, 0.6)',
+            'rgba(255, 255, 255, 0.8)',
+          ]}
+          // start={{x: 0.5, y: 0.5}}
           style={styles.gradient}>
-          <Text style={styles.text}>{course.name}</Text>
+          <Text style={styles.text}>{name}</Text>
         </LinearGradient>
       </ImageBackground>
     </View>
   );
 }
 
-export default CourseSquare;
+export default CourseItem;
 
 const styles = StyleSheet.create({
   container: {
+    margin: 10,
     width: 150,
     height: 150,
     borderRadius: 22,

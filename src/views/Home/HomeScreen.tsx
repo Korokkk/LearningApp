@@ -23,6 +23,26 @@ const coursesData = [
     name: 'Engineering',
     image: 'https://i.ibb.co/ZJWrMmx/course2.png',
   },
+  {
+    id: 3,
+    name: 'Medicine',
+    image: 'https://i.ibb.co/7Kz6Yqg/course1.png',
+  },
+  {
+    id: 4,
+    name: 'Engineering',
+    image: 'https://i.ibb.co/ZJWrMmx/course2.png',
+  },
+  {
+    id: 5,
+    name: 'Medicine',
+    image: 'https://i.ibb.co/7Kz6Yqg/course1.png',
+  },
+  {
+    id: 6,
+    name: 'Engineering',
+    image: 'https://i.ibb.co/ZJWrMmx/course2.png',
+  },
 ];
 
 export default function ({navigation}) {
@@ -30,23 +50,16 @@ export default function ({navigation}) {
     <>
       <TopScreen navigation={navigation} showBack={false} />
       <View style={styles.container}>
-        <Text
-        //  style={styles.title}
-        >
-          Your courses
-        </Text>
+        <Text style={styles.title}>Your courses</Text>
         <FlatList
           style={styles.flatList}
           data={coursesData}
           renderItem={({item}) => (
-            <CourseItem
-              name={item.name}
-              image={item.image}
-              style={styles.courseItem}
-            />
+            <CourseItem name={item.name} image={item.image} />
           )}
-          // keyExtractor={item => item.id}
-          horizontal={true}
+          keyExtractor={item => item.id}
+          horizontal={false}
+          numColumns={2}
         />
       </View>
       <BottomScreen navigation={navigation} />
@@ -58,6 +71,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    padding: 20,
+    height: '100%',
   },
-  flatList: {},
+  title: {
+    fontSize: 24,
+    margin: 50,
+  },
+  flatList: {
+    width: '100%',
+  },
 });
