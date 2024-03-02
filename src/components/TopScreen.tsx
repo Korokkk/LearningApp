@@ -28,7 +28,7 @@ export default function (props) {
               source={require('../assets/images/topCenter.jpg')}
               style={{width: 30, height: 30, marginLeft: 20}}
             />
-            <Text>Critical Care</Text>
+            <Text>Test header</Text>
           </View>
         }
         rightComponent={
